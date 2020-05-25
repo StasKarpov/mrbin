@@ -1,9 +1,7 @@
 import React from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import { Typography, Button, TextField } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Button, TextField } from "@material-ui/core";
 import { Grid, Icon } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
 import { useContext } from "../context/app";
@@ -12,7 +10,6 @@ import { DESTINATIONS } from "../config/mock";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 const CreateRecomendation = ({ history }) => {
-  const styles = useStyles();
   const { product } = useContext();
   const [destinations, setDestinations] = React.useState([]);
 
@@ -59,7 +56,5 @@ const CreateRecomendation = ({ history }) => {
     </Grid>
   ) : null;
 };
-
-const useStyles = makeStyles(theme => ({}));
 
 export default withRouter(CreateRecomendation);

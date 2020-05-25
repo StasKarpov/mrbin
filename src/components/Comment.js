@@ -1,7 +1,6 @@
 import React from "react";
 import { Grid, Typography } from "@material-ui/core";
 import Destination from "./Destination";
-import Autocomplete from "@material-ui/lab/Autocomplete";
 
 export default ({ comment }) => {
   return (

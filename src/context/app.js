@@ -5,9 +5,7 @@ import { fetchProducts } from "../api";
 const AppContext = React.createContext();
 
 function AppProvider(props) {
-  const [localization, setLocalization] = React.useState(
-    "pl_warsaw_sriodmiejscie"
-  );
+  const [localization, _] = React.useState("pl_warsaw_sriodmiejscie");
 
   const [products, setProducts] = React.useState([]);
 

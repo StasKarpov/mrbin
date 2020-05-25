@@ -8,9 +8,10 @@ import { useContext } from "../context/app";
 
 export const Home = () => {
   const styles = useStyles();
-  const { loadProducts, products, setProduct, product } = useContext();
+  const { products, setProduct, product } = useContext();
 
   React.useEffect(() => {
+    const { loadProducts } = useContext();
     loadProducts();
   }, []);
 
