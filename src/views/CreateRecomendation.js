@@ -8,10 +8,12 @@ import { useContext } from "../context/app";
 import ProductPreview from "../components/ProductPreview";
 import { DESTINATIONS } from "../config/mock_old";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import { makeStyles } from "@material-ui/core/styles";
 
 const CreateRecomendation = ({ history }) => {
   const { product, setProducts, setProduct, products } = useContext();
   const [destinations, setDestinations] = React.useState([]);
+  const styles = useStyles();
 
   const addDestinationField = () => {
     setDestinations([...destinations, {}]);
@@ -25,21 +27,20 @@ const CreateRecomendation = ({ history }) => {
     const newProducts = JSON.parse(JSON.stringify(products));
     newProducts.find(({ id }) => id === 3).comments = [
       {
-        text: "",
+        text: "please separate the two parts of the packaging",
         localization: "pl_warsaw_powisle",
         parts: [
           {
-            text: "Opakowanie z kartonu",
-            destination: "paper_pl_warsaw"
+            text: "Тozzle",
+            destination: "plastic_pl_warsaw"
           },
           {
-            text: "Kryszeczka",
+            text: "spray body",
             destination: "mix_pl_warsaw"
           }
         ]
       }
     ];
-    console.log(newProducts);
     setProducts(newProducts);
     setProduct(newProducts[2]);
     history.push("/");
@@ -47,8 +48,11 @@ const CreateRecomendation = ({ history }) => {
 
   return product && product.name ? (
     <Grid container>
-      <Grid item xs={12}>
+      <Grid className={styles.mt} item xs={12}>
         <ProductPreview showBack />
+      </Grid>
+      <Grid className={styles.mt} item xs={12}>
+        <TextField fullWidth label="Enter comment" />
       </Grid>
       {destinations.map((d, i) => (
         <Grid item xs={12}>
@@ -92,5 +96,11 @@ const CreateRecomendation = ({ history }) => {
     })()
   );
 };
+
+const useStyles = makeStyles(theme => ({
+  mb: {
+    marginBottom: "1rem"
+  }
+}));
 
 export default withRouter(CreateRecomendation);
