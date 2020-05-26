@@ -10,7 +10,20 @@ export default class Scanner extends React.Component {
     return (
       <React.Fragment>
         <div id="interactive" className="viewport" />
-        <p style={{ fontSize: "20px" }}>loading camera ...</p>
+        <div
+          style={{
+            left: "17%",
+            width: "260px",
+            height: "187px",
+            border: "2px solid blue",
+            backgroundColor: "transparent",
+            position: "fixed",
+            top: "20%"
+          }}
+        ></div>
+        <p style={{ fontSize: "20px", paddingTop: "200px" }}>
+          loading camera ...
+        </p>
       </React.Fragment>
     );
   }
@@ -21,7 +34,7 @@ export default class Scanner extends React.Component {
         inputStream: {
           type: "LiveStream",
           constraints: {
-            width: 300,
+            width: 330,
             facingMode: "environment" // or user
           }
         },
