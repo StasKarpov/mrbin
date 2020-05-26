@@ -6,7 +6,7 @@ import { Grid, Icon } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
 import { useContext } from "../context/app";
 import ProductPreview from "../components/ProductPreview";
-import { DESTINATIONS } from "../config/mock";
+import { DESTINATIONS } from "../config/mock_old";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -18,12 +18,7 @@ const CreateRecomendation = ({ history }) => {
     <Grid container>
       {products.map((p, i) => (
         <Grid className={styles.mb} key={i} item xs={12}>
-          <ProductPreview
-            showSeeRecomendation
-            product={p}
-            showBack={i === 0}
-            backLink="/community"
-          />
+          <ProductPreview showSeeRecomendation product={p} showBack={i === 0} />
         </Grid>
       ))}
     </Grid>
