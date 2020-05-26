@@ -76,7 +76,7 @@ export default class Scanner extends React.Component {
 
     if (this.state.results.length > 1) {
       this.props.onDetected(this.state.results);
-      Quagga.offDetected(this.onDetected);
+      Quagga.stop();
     }
   };
 }
