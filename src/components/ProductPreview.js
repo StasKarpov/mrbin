@@ -100,7 +100,8 @@ const ProductPreview = ({
 const useStyles = makeStyles(theme => ({
   media: {
     width: "9rem",
-    height: "9rem"
+    height: "9rem",
+    backgroundSize: "contain"
   },
   p: {
     padding: "1rem"
