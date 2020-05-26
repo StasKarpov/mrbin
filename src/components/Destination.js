@@ -18,13 +18,15 @@ export default ({ text, destinationId }) => {
       <Grid
         item
         container
-        justify="center"
+        justify="left"
         style={{ alignItems: "center" }}
         xs={10}
       >
-        <Typography variant="h6">{text}</Typography>
+        <Typography className={styles.ml} variant="subtitle2">
+          {text}
+        </Typography>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item container justify="flex-end" xs={12}>
         <Button variant="outlined" href={destination.link}>
           {destination.name}
         </Button>
@@ -39,5 +41,11 @@ const useStyles = makeStyles(theme => ({
     width: "2rem",
     height: "2rem",
     margin: "1rem"
+  },
+  alignLeft: {
+    textAlign: "left"
+  },
+  ml: {
+    marginLeft: "1rem"
   }
 }));

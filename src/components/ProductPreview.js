@@ -8,23 +8,28 @@ import { Grid, Icon } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
 import { useContext } from "../context/app";
 import Comment from "./Comment";
+import reddit from "../assets/img/reddit.jpeg";
 
 const ProductPreview = ({
   history,
   showComments = false,
   showAddRecomendation = false,
   showBack = false,
-  showSeeRecomendation = false
+  backLink = "/",
+  showSeeRecomendation = false,
+  product: productProps = null
 }) => {
   const styles = useStyles();
-  const { product, setProduct } = useContext();
+  const { product: productContext, setProduct } = useContext();
+  let product = productProps || productContext;
 
   const handleShowProduct = () => {
+    setProduct(product);
     history.push("/product");
   };
 
   const handleBack = () => {
-    history.push("/");
+    history.push(backLink);
     setProduct(null);
   };
 
@@ -32,12 +37,24 @@ const ProductPreview = ({
     <Card className={styles.p}>
       <Grid container>
         {showBack && (
-          <Grid item xs={12}>
+          <Grid item xs={1}>
             <Icon onClick={handleBack}>keyboard_arrow_left</Icon>
           </Grid>
         )}
-        <Grid item xs={12}>
-          <Typography variant="h3">{product.name}</Typography>
+        <Grid item xs={10}>
+          <Typography
+            className={`${styles.alignCenter} ${styles.margin}`}
+            variant="h4"
+          >
+            {product.name}
+          </Typography>
+        </Grid>
+        <Grid className={styles.vote} item xs={1}>
+          <Icon>keyboard_arrow_up</Icon>
+          <span style={{ fontFamily: "Poppers", fontWeight: "700" }}>
+            {Math.floor(Math.random() * 90 + 10)}k
+          </span>
+          <Icon>keyboard_arrow_down</Icon>
         </Grid>
         <Grid item xs={5}>
           <CardMedia className={styles.media} image={product.image} />
@@ -58,7 +75,7 @@ const ProductPreview = ({
               variant="contained"
               onClick={handleShowProduct}
             >
-              See recomendations
+              RECYCLING RECOMENDATIONS
             </Button>
           </Grid>
         )}
@@ -87,6 +104,20 @@ const useStyles = makeStyles(theme => ({
   },
   p: {
     padding: "1rem"
+  },
+  ml: {
+    marginLeft: "1rem",
+    marginTop: "-0.5rem"
+  },
+  alignCenter: {
+    textAlign: "center"
+  },
+  margin: {
+    margin: "-9px 0 10px 0"
+  },
+  vote: {
+    display: "flex",
+    flexDirection: "column"
   }
 }));
 

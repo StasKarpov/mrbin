@@ -1,28 +1,24 @@
 export const mockProducts = [
   {
-    id: 1,
-    barcode: 1,
-    name: "Acidolit",
-    desciption:
-      "Acidolit (bez smaku) proszek do przyg. rozt. doust. x 10 sasz.",
+    id: 1, //Scan, full data
+    barcode: 5901821958196,
+    name: "VACO Spray",
+    desciption: "MAX na komary, kleszcze, meszki (mini) 50ml",
     image:
-      "https://www.apteka-melissa.pl/produkty_zdjecia/acidolit-o-smaku-jablkowym-10-sasz.jpg",
+      "https://galeriaogrodu.pl/userdata/public/gfx/6514/DV-73-VACO-Spray-MAX-na-komary%2C-kleszcze%2C-meszki-50-ml-5901821958196.jpg",
     comments: [
       {
-        text: "long comment",
+        text:
+          "Ensure aerosols are completely empty before recycling; Do not pierce, crush or flatten aerosol cans; Detach any loose or easily removable parts, such as the lid, and dispose of them with the rest of your recycling.  ",
         localization: "pl_warsaw_powisle",
         parts: [
           {
-            text: "Opakowanie z kartonu",
-            destination: "paper_pl_warsaw"
+            text: "throw away the metal part into:",
+            destination: "mix_pl_warsaw"
           },
           {
-            text: "Kryszeczka",
+            text: "throw away the plastic part into:",
             destination: "plastic_pl_warsaw"
-          },
-          {
-            text: "Przeterminowany lek",
-            destination: "drugstore_type1"
           }
         ]
       }
@@ -31,22 +27,22 @@ export const mockProducts = [
   {
     id: 2,
     barcode: 2,
-    name: "Sok",
-    desciption: "Sok",
-    image:
-      "https://arkanasmaku.pl/environment/cache/images/500_500_productGfx_44114/SW_3L_pomarancza.jpg",
+    name: "Bioracef",
+    desciption: "(cefuroksym (aksetyl cefuroksymu)) - tabletki powlekane",
+    image: "https://ktomalek.pl/zdjecia/bioracef-interakcje-ulotka-B3590803",
     comments: [
       {
-        text: "long comment",
+        text:
+          "Please do not flush the remnants of the medicine into the toilet and do not throw it into the trash can! It is very dangerous for the environment.",
         localization: "pl_warsaw_powisle",
         parts: [
           {
-            text: "Opakowanie z kartonu",
+            text: "Please threw the Carton packaging into:",
             destination: "paper_pl_warsaw"
           },
           {
-            text: "Kryszeczka",
-            destination: "plastic_pl_warsaw"
+            text: "Take the rest of the medicine to the nearest pharmacy",
+            destination: "drugstore_type1"
           }
         ]
       }
@@ -55,12 +51,13 @@ export const mockProducts = [
   {
     id: 3,
     barcode: 3,
-    name: "Yogurt",
-    desciption: "Yogurt",
-    image: "https://eoreco.pl/img/259457/1.jpg",
+    name: "Fonix",
+    desciption: "Ból Uszu, spray, 15ml",
+    image:
+      "https://static.aptekagemini.pl/media/products/b_/7_/b_/b7b8b1452cd4b55102c30c42a22c8cea/images/thumbnail/large_47304.jpg",
     comments: [
       {
-        text: "long comment",
+        text: "long comment", // - Unfortunatly, we dont have a recucling instructions for this product. Let's ask Bin Community for help :3
         localization: "pl_warsaw_powisle",
         parts: [
           {
@@ -80,25 +77,24 @@ export const mockProducts = [
 export const DESTINATIONS = [
   {
     id: "paper_pl_warsaw",
-    name: "Kosz papierowy",
-    color: "rgb(17, 141, 193)"
+    name: "Paper",
+    color: "rgb(218, 171, 80)"
   },
   {
     id: "plastic_pl_warsaw",
-    name: "Kosz plastykowy",
+    name: "Plastic",
     color: "rgb(254, 191, 9)"
   },
   {
     id: "mix_pl_warsaw",
-    name: "Kosz mieszany",
-    color: "rgb(1, 1, 1)"
+    name: "Mixed",
+    color: "rgb(110, 108, 202)"
   },
   {
     id: "drugstore_type1",
     name: "Apteka",
-    color: "rgb(87, 182, 213)",
-    link:
-      "https://www.google.com/maps/search/apteka+warszawa/@52.2285811,20.9629607,12.28z/data=!4m2!2m1!6e2"
+    color: "rgb(207, 121, 121)",
+    link: "https://goo.gl/maps/1HVHvv9e4CMoDgSu6"
   }
 ];
 

@@ -17,6 +17,10 @@ const CreateRecomendation = ({ history }) => {
     setDestinations([...destinations, {}]);
   };
 
+  const goHome = () => {
+    history.push("/");
+  };
+
   return product && product.name ? (
     <Grid container>
       <Grid item xs={12}>
@@ -24,17 +28,20 @@ const CreateRecomendation = ({ history }) => {
       </Grid>
       {destinations.map((d, i) => (
         <Grid item xs={12}>
-          <div style={{ width: "18rem", margin: "1rem" }}>
+          <div style={{ width: "327px", marginTop: "1rem" }}>
             <Card>
               <CardContent>
-                <TextField label="Enter comment" />
+                <TextField fullWidth label="Enter the packaging type" />
                 <Autocomplete
                   options={DESTINATIONS}
                   getOptionLabel={option => option.name}
                   fullWidth
                   //onChange={(e, v) => handleSetDestination(i, v.id)}
                   renderInput={params => (
-                    <TextField {...params} label="Choose a destination" />
+                    <TextField
+                      {...params}
+                      label="Chose a recommended bin type"
+                    />
                   )}
                 />
               </CardContent>
@@ -45,16 +52,21 @@ const CreateRecomendation = ({ history }) => {
       <Grid item xs={12}>
         <Button onClick={addDestinationField}>
           {" "}
-          <Icon>add</Icon> Add ddestination
+          <Icon>add</Icon> Add the waste type
         </Button>
       </Grid>
       <Grid item xs={12}>
-        <Button color="secondary" variant="outlined">
+        <Button color="secondary" variant="outlined" onClick={goHome}>
           Submit
         </Button>
       </Grid>
     </Grid>
-  ) : null;
+  ) : (
+    (() => {
+      goHome();
+      return null;
+    })()
+  );
 };
 
 export default withRouter(CreateRecomendation);
