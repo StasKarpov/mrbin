@@ -55,22 +55,23 @@ export const mockProducts = [
     desciption: "Ból Uszu, spray, 15ml",
     image:
       "https://static.aptekagemini.pl/media/products/b_/7_/b_/b7b8b1452cd4b55102c30c42a22c8cea/images/thumbnail/large_47304.jpg",
-    comments: [
-      {
-        text: "long comment", // - Unfortunatly, we dont have a recucling instructions for this product. Let's ask Bin Community for help :3
-        localization: "pl_warsaw_powisle",
-        parts: [
-          {
-            text: "Opakowanie z kartonu",
-            destination: "paper_pl_warsaw"
-          },
-          {
-            text: "Kryszeczka",
-            destination: "mix_pl_warsaw"
-          }
-        ]
-      }
-    ]
+    comments: []
+    // [
+    //   {
+    //     text: "", // - Unfortunatly, we dont have a recucling instructions for this product. Let's ask Bin Community for help :3
+    //     localization: "pl_warsaw_powisle",
+    //     parts: [
+    //       {
+    //         text: "Opakowanie z kartonu",
+    //         destination: "paper_pl_warsaw"
+    //       },
+    //       {
+    //         text: "Kryszeczka",
+    //         destination: "mix_pl_warsaw"
+    //       }
+    //     ]
+    //   }
+    // ]
   }
 ];
 

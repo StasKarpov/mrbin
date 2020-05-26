@@ -22,7 +22,8 @@ function AppProvider(props) {
         products,
         loadProducts,
         product,
-        setProduct
+        setProduct,
+        setProducts
       }}
       {...props}
     />

@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Typography, Button } from "@material-ui/core";
-import { DESTINATIONS } from "../config/mock";
+import { DESTINATIONS } from "../config/mock_old";
 import { makeStyles } from "@material-ui/core/styles";
 
 export default ({ text, destinationId }) => {

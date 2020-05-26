@@ -6,11 +6,11 @@ import { Grid, Icon } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
 import { useContext } from "../context/app";
 import ProductPreview from "../components/ProductPreview";
-import { DESTINATIONS } from "../config/mock";
+import { DESTINATIONS } from "../config/mock_old";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 const CreateRecomendation = ({ history }) => {
-  const { product } = useContext();
+  const { product, setProducts, setProduct, products } = useContext();
   const [destinations, setDestinations] = React.useState([]);
 
   const addDestinationField = () => {
@@ -18,6 +18,30 @@ const CreateRecomendation = ({ history }) => {
   };
 
   const goHome = () => {
+    history.push("/");
+  };
+
+  const submit = () => {
+    const newProducts = JSON.parse(JSON.stringify(products));
+    newProducts.find(({ id }) => id === 3).comments = [
+      {
+        text: "",
+        localization: "pl_warsaw_powisle",
+        parts: [
+          {
+            text: "Opakowanie z kartonu",
+            destination: "paper_pl_warsaw"
+          },
+          {
+            text: "Kryszeczka",
+            destination: "mix_pl_warsaw"
+          }
+        ]
+      }
+    ];
+    console.log(newProducts);
+    setProducts(newProducts);
+    setProduct(newProducts[2]);
     history.push("/");
   };
 
@@ -56,7 +80,7 @@ const CreateRecomendation = ({ history }) => {
         </Button>
       </Grid>
       <Grid item xs={12}>
-        <Button color="secondary" variant="outlined" onClick={goHome}>
+        <Button color="secondary" variant="outlined" onClick={submit}>
           Submit
         </Button>
       </Grid>

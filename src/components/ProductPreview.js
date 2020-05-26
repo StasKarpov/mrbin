@@ -66,7 +66,14 @@ const ProductPreview = ({
         </Grid>
         <Grid item xs={12}>
           {" "}
-          <Typography variant="subtitle2">{`${product.comments.length} comments availible.`}</Typography>
+          {product.comments.length > 0 ? (
+            <Typography variant="subtitle2">{`${product.comments.length} comments availible.`}</Typography>
+          ) : (
+            <Typography variant="subtitle1">
+              Unfortunatly, we dont have a recucling instructions for this
+              product. Let's ask Bin Community for help :3
+            </Typography>
+          )}
         </Grid>
         {showSeeRecomendation && (
           <Grid item align="center" className={styles.p} xs={12}>
@@ -79,7 +86,9 @@ const ProductPreview = ({
             </Button>
           </Grid>
         )}
-        {showComments && <Comment comment={product.comments[0]} />}
+        {showComments && product.comments.length > 0 && (
+          <Comment comment={product.comments[0]} />
+        )}
         {showAddRecomendation && (
           <Grid item align="center" className={styles.p} xs={12}>
             <Button
